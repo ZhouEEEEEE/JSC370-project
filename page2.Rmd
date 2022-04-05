@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Interactive Visulization
 
-```{r}
+```{r include=FALSE, warning=FALSE}
 library(dplyr)
 library(data.table)
 library(tidyverse)
@@ -25,7 +25,7 @@ source("process_COVID_data.R")
 head(cv_states_today)
 ```
 
-```{r}
+```{r include=FALSE, warning=FALSE}
 p1_scatter <- cv_states_today %>% 
   plot_ly(x = ~pop_density, y = ~deathsper100k,
           type = 'scatter', mode = 'markers', color = ~state,
@@ -52,14 +52,21 @@ p2_scatter <- cv_states_today_scatter %>%
          hovermode = "compare")
 ```
 
-# Frrst plot
-```{r}
+# a set of plots {.tabset}
+
+## Frrst plot
+```{r warning=FALSE, echo=FALSE}
 p1_scatter
 ```
+## Second plot
 
-# Second plot
-```{r}
+```{r warning=FALSE, echo=FALSE}
 p2_scatter
 ```
 
+# More Information
+
+```{r}
+
+```
 
